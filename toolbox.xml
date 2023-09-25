@@ -1,13 +1,13 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <block type="element_symbol" deletable="false" movable="false" editable="false">
+  <block type="element_symbol" deletable="true" movable="true" editable="true">
     <field name="NAME">H</field>
   </block>
-  <block type="element_coefficient" deletable="false" movable="false" editable="false">
+  <block type="element_coefficient" deletable="true" movable="true" editable="true">
     <field name="NAME">1</field>
   </block>
-  <block type="compound" deletable="false" movable="false" editable="false"></block>
+  <block type="compound" deletable="true" movable="true" editable="true"></block>
   <block type="reactants_or_products"></block>
-  <block type="chemical_equation" deletable="false" movable="false" editable="false">
+  <block type="chemical_equation" deletable="true" movable="true" editable="true">
     <field name="EquationType">FORWARD</field>
   </block>
 </xml>
