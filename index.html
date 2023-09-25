@@ -9,18 +9,21 @@
 
   <!-- Include your toolbox content here -->
   <xml id="toolbox" style="display: none">
-    <!-- Replace this with the content of your toolbox.xml file -->
-    <block type="element_symbol" deletable="false" movable="false" editable="false">
-      <field name="NAME">H</field>
-    </block>
-    <block type="element_coefficient" deletable="false" movable="false" editable="false">
-      <field name="NAME">1</field>
-    </block>
-    <block type="compound" deletable="false" movable="false" editable="false"></block>
-    <block type="reactants_or_products"></block>
-    <block type="chemical_equation" deletable="false" movable="false" editable="false">
-      <field name="EquationType">FORWARD</field>
-    </block>
+    <category name="Element Builder">
+        <block type="element_symbol" deletable="false" movable="false" editable="false">
+          <field name="NAME">H</field>
+        </block>
+        <block type="element_coefficient" deletable="false" movable="false" editable="false">
+          <field name="NAME">1</field>
+        </block>
+        <block type="compound" deletable="false" movable="false" editable="false"></block>
+      </category>
+      <category name="Equation Builder">
+        <block type="reactants_or_products"></block>
+        <block type="chemical_equation" deletable="false" movable="false" editable="false">
+          <field name="EquationType">FORWARD</field>
+        </block>
+      </category>
   </xml>
 
   <!-- Include your workspace content here -->
@@ -28,6 +31,14 @@
     <!-- Replace with the content of your workspace.xml file -->
     <xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
     <!-- Additional blocks from your workspace go here -->
+    <block type="element_symbol"></block>
+    <block type="element_coefficient"></block>
+    <block type="compound"></block>
+    <block type="reactants_or_products"></block>
+    <block type="chemical_equation">
+        <field name="EquationType">FORWARD</field>
+    </block>
+  <!-- Include other blocks as needed -->
   </xml>
 
   <script src="workspace.js"></script>

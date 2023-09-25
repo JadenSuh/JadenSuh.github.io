@@ -1,6 +1,6 @@
 /* Define custom blocks using Blockly.Blocks object */
 
-Blockly.Blocks['compound'] = {
+  Blockly.Blocks['compound'] = {
 	init: function() {
 	  this.appendValueInput("ELEMENT1")
 		  .setCheck(["Element", "Compound"])
@@ -21,7 +21,7 @@ Blockly.Blocks['compound'] = {
 		  .setCheck("String")
 		  .appendField("Element Symbol")
 		  .appendField(new Blockly.FieldTextInput("H"), "NAME");
-	  this.setInputsInline(true);
+	  this.setInputsInline(false);
 	  this.setOutput(true, "Element");
 	  this.setColour(120);
    this.setTooltip("Enter the chemical symbol for the desired element");
@@ -36,7 +36,7 @@ Blockly.Blocks['compound'] = {
 		  .appendField(new Blockly.FieldNumber(1, 1), "NAME");
 	  this.setInputsInline(true);
 	  this.setOutput(true, "Element");
-	  this.setColour(230);
+	  this.setColour(180);
    this.setTooltip("Type the coefficient for the number the inserted element");
    this.setHelpUrl("");
 	}
@@ -45,11 +45,11 @@ Blockly.Blocks['compound'] = {
   Blockly.Blocks['chemical_equation'] = {
 	init: function() {
 	  this.appendValueInput("NAME")
-		  .setCheck("EquationInput");
+		  .setCheck(["EquationInput", "Element", "Compound"]);
 	  this.appendDummyInput()
 		  .appendField(new Blockly.FieldDropdown([["→","FORWARD"], ["⇌","EQUILIBRIUM"]]), "EquationType");
 	  this.appendValueInput("NAME")
-		  .setCheck("EquationInput");
+		  .setCheck(["EquationInput", "Element", "Compound"]);
 	  this.setInputsInline(true);
 	  this.setOutput(true, "EquationOutput");
 	  this.setColour(230);
