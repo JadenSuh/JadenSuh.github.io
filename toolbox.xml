@@ -1,5 +1,13 @@
-<xml id="toolbox" style="display: none">
-  <category name="Chemistry Blocks" colour="120">
-    <block type="element"></block>
-  </category>
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <block type="element_symbol" deletable="false" movable="false" editable="false">
+    <field name="NAME">H</field>
+  </block>
+  <block type="element_coefficient" deletable="false" movable="false" editable="false">
+    <field name="NAME">1</field>
+  </block>
+  <block type="compound" deletable="false" movable="false" editable="false"></block>
+  <block type="reactants_or_products"></block>
+  <block type="chemical_equation" deletable="false" movable="false" editable="false">
+    <field name="EquationType">FORWARD</field>
+  </block>
 </xml>

@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>General Chemistry DSL</title>
-        <!-- Include Blockly library -->
-        <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
-        <!-- Custom block definitions -->
-        <script src="block_definitions.js"></script>
-        <!-- Include JavaScript functions -->
-        <!-- script src="chemistry_functions.js"></script> -->
-        <!-- Include generator stubs -->
-        <script src="generator_stubs.js"></script>
-        <style>
-            /* Style the Blockly workspace container */
-            #blocklyDiv {
-                height: 400px;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>General Chemistry DSL</h1>
+<head>
+  <title>General Chemistry DSL</title>
+  <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+</head>
+<body>
+  <div id="blocklyDiv" style="height: 600px; width: 1200px;"></div>
 
-        <!-- Blockly workspace container -->
-        <div id="blocklyDiv"></div>
-    
-        <!-- Load Blockly into the workspace container -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Load the toolbox XML file
-                fetch('toolbox.xml')
-                    .then(response => response.text())
-                    .then(text => {
-                        // Parse the XML text
-                        const toolbox = Blockly.Xml.textToDom(text);
-                        // Initialize Blockly workspace
-                        var workspace = Blockly.inject('blocklyDiv', {
-                            toolbox: toolbox
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            });
-        </script>
-    </body>
+  <!-- Include your toolbox content here -->
+  <!-- Include the toolbox configuration -->
+  <xml id="toolbox" style="display: none">
+    <!-- Replace this with the content of your toolbox.xml file -->
+    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+      <block type="element_symbol" deletable="false" movable="false" editable="false">
+        <field name="NAME">H</field>
+      </block>
+      <block type="element_coefficient" deletable="false" movable="false" editable="false">
+        <field name="NAME">1</field>
+      </block>
+      <block type="compound" deletable="false" movable="false" editable="false"></block>
+      <block type="reactants_or_products"></block>
+      <block type="chemical_equation" deletable="false" movable="false" editable="false">
+        <field name="EquationType">FORWARD</field>
+      </block>
+    </xml>
+  </xml>
+
+  <!-- Include your workspace content here -->
+  <xml id="workspace" style="display: none">
+    <!-- Replace with the content of your workspace.xml file -->
+    <xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
+    <!-- Additional blocks from your workspace go here -->
+  </xml>
+
+  <script src="workspace.js"></script>
+</body>
 </html>
