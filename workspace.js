@@ -74,6 +74,30 @@
 	}
   };
 
+/* Code Generator Functions */
+
+Blockly.JavaScript['element_symbol'] = function(block) {
+  var name = block.getFieldValue('NAME');
+  return [name, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['element_coefficient'] = function(block) {
+  var name = block.getFieldValue('NAME');
+  return [name, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['compound'] = function(block) {
+  var element1 = Blockly.JavaScript.valueToCode(block, 'ELEMENT1', Blockly.JavaScript.ORDER_NONE);
+  var element2 = Blockly.JavaScript.valueToCode(block, 'ELEMENT2', Blockly.JavaScript.ORDER_NONE);
+  return [element1 + " " + element2, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['reactants_or_products'] = function(block) {
+  var element1 = Blockly.JavaScript.valueToCode(block, 'Element1', Blockly.JavaScript.ORDER_ATOMIC);
+  var element2 = Blockly.JavaScript.valueToCode(block, 'Element2', Blockly.JavaScript.ORDER_ATOMIC);
+  return [element1 + " + " + element2, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 Blockly.JavaScript['chemical_equation'] = function(block) {
   var reactants = Blockly.JavaScript.valueToCode(block, 'REACTANTS', Blockly.JavaScript.ORDER_ATOMIC);
   var equationType = block.getFieldValue('EquationType');
