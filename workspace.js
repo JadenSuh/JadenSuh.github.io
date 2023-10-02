@@ -119,6 +119,7 @@ Blockly.JavaScript['chemical_equation'] = function(block) {
 /* Put more custom blocks here */
 
 /* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
+/*
 var toolbox = document.getElementById("toolbox");
 
 var options = { 
@@ -137,7 +138,6 @@ var options = {
 	sounds : true, 
 	oneBasedIndex : true
 };
-/*
 var workspace = Blockly.inject('blocklyDiv', options);
 
 var workspaceBlocks = document.getElementById("toolbox"); 
