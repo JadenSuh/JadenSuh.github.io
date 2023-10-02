@@ -1,17 +1,43 @@
 /* Define custom blocks using Blockly.Blocks object */
-  
+
+Blockly.Blocks['element_symbols'] = {
+	init: function() {
+		this.appendValueInput("SYMBOL")
+			.setCheck("Symbol")
+			.appendField("Ele"); /* Name that appears on block piece */
+		this.setInputsInline(true);
+		this.setOutput(true, "Element"); /* output type to allow block connections */
+		this.setColour(120);
+		this.setTooltip("Enter an 'Element_Input' Block");
+		this.setHelpUrl("https://en.wikipedia.org/wiki/Chemical_symbol");
+	}
+};
+
+// TODO: REMOVE
 Blockly.Blocks['element_symbol'] = {
 	init: function() {
 		this.appendValueInput("SYMBOL")
 		  .setCheck("String")
-		  .appendField("Ele") /* Name that appears on block piece */
+		  .appendField("Ele") 
 		  .appendField(new Blockly.FieldTextInput("H"), "NAME");
 		this.setInputsInline(true);
-		this.setOutput(true, "Element"); /* output type to allow block connections */
+		this.setOutput(true, "Element"); 
 		this.setColour(120);
 		this.setTooltip("Enter the chemical symbol for the desired element");
 		this.setHelpUrl("https://en.wikipedia.org/wiki/Chemical_symbol");
 	}
+};
+
+Blockly.Blocks['element_input'] = {
+	init: function() {
+		this.appendEndRowInput()
+			.appendField(new Blockly.FieldTextInput("H"), "SYMBOL");
+		this.setInputsInline(true);
+		this.setOutput(true, "Symbol");
+		this.setColour(120);
+		this.setTooltip("Enter the chemical symbol for the desired element");
+		this.setHelpUrl("https://en.wikipedia.org/wiki/Chemical_symbol");
+  }
 };
 
 Blockly.Blocks['element_coefficient'] = {
@@ -77,7 +103,13 @@ Blockly.Blocks['chemical_equation'] = {
 /* Code Generator Functions */
 
 Blockly.JavaScript['element_symbol'] = function(block) {
-	var var_name = block.getFieldValue('NAME');
+	var ele_symbol = Blockly.JavaScript.valueToCode(block, 'SYMBOL', Blockly.JavaScript.ORDER_NONE);
+	var code = ele_symbol;
+	return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['element_input'] = function(block) {
+	var var_name = block.getFieldValue('SYMBOL');
 	var code = var_name;
 	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
