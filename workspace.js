@@ -63,7 +63,7 @@ Blockly.Blocks['chemical_equation'] = {
 		this.appendValueInput("REACTANTS")
 		  .setCheck(["EquationInput", "Element", "Compound"]);
 		this.appendDummyInput()
-		  .appendField(new Blockly.FieldDropdown([["→","FORWARD"], ["⇌","EQUILIBRIUM"]]), "EquationType");
+		  .appendField(new Blockly.FieldDropdown([["→","->"], ["⇌","<-->"]]), "EquationType");
 		this.appendValueInput("PRODUCTS")
 		  .setCheck(["EquationInput", "Element", "Compound"]);
 		this.setInputsInline(true);
@@ -92,7 +92,8 @@ Blockly.JavaScript['element_coefficient'] = function(block) {
 Blockly.JavaScript['compound'] = function(block) {
 	var element1 = Blockly.JavaScript.valueToCode(block, 'ELEMENT1', Blockly.JavaScript.ORDER_NONE);
 	var element2 = Blockly.JavaScript.valueToCode(block, 'ELEMENT2', Blockly.JavaScript.ORDER_NONE);
-	var code = element1 + element2;
+	var com = element1 + element2;
+	var code = com.replace(/ /g, "")
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
