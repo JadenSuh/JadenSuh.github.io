@@ -22,15 +22,24 @@
       </category>
     </xml>
   </div>
+  <div class="row button-row">
+    <button onclick="generateCode()">Generate Code</button>
+  </div>
+  <div class="row">
+    <div id="codeDiv" class="half-width"></div>
+    <div id="outputDiv" class="half-width"></div>
+  </div>
 
-  <button id="generateCodeButton">Generate Code</button>
-  <div id="codeOutput"></div>
-  
   <script>
     var workspace = Blockly.inject('blocklyDiv', {
       toolbox: document.getElementById('toolbox'),
       scrollbars: true
     });
+
+    function generateCode() {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('codeDiv').innerText = code;
+        }
   </script>
 </body>
 </html>
