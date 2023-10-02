@@ -1,8 +1,9 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="Element Builder">
-    <block type="element_symbol">
-      <field name="NAME">H</field>
+    <block type="element_input">
+      <field name="SYMBOL">H</field>
     </block>
+    <block type="element_symbol">
     <block type="element_coefficient">
       <field name="NAME">1</field>
     </block>
