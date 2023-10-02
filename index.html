@@ -10,20 +10,22 @@
     <div id="blocklyDiv" style="height: 600px; width: 1200px;"></div>
     <xml id="toolbox" style="display: none">
       <category name="Element Builder">
-          <block type="element_symbol"</block>
-          <block type="element_coefficient" </block>
-          <block type="compound" deletable="false" movable="false" editable="false"></block>
+        <block type="element_symbol"></block>
+        <block type="element_coefficient"></block>
+        <block type="compound"></block>
       </category>
       <category name="Equation Builder">
-          <block type="reactants_or_products"></block>
-          <block type="chemical_equation"</block>
+        <block type="reactants_or_products"></block>
+        <block type="chemical_equation">
+          <field name="EquationType">FORWARD</field>
+        </block>
       </category>
     </xml>
   </div>
   <script>
     var workspace = Blockly.inject('blocklyDiv', {
-            toolbox: document.getElementById('toolbox'),
-            scrollbars: true
+      toolbox: document.getElementById('toolbox'),
+      scrollbars: true
     });
   </script>
 </body>
