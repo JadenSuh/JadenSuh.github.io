@@ -41,23 +41,7 @@ Blockly.Blocks['compound'] = {
 		this.setHelpUrl("");
 	}
 };
-  
-Blockly.Blocks['chemical_equation'] = {
-	init: function() {
-		this.appendValueInput("REACTANTS")
-		  .setCheck(["EquationInput", "Element", "Compound"]);
-		this.appendDummyInput()
-		  .appendField(new Blockly.FieldDropdown([["→","FORWARD"], ["⇌","EQUILIBRIUM"]]), "EquationType");
-		this.appendValueInput("PRODUCTS")
-		  .setCheck(["EquationInput", "Element", "Compound"]);
-		this.setInputsInline(true);
-		this.setOutput(true, "EquationOutput");
-		this.setColour(230);
-		this.setTooltip("Insert reactants_or_products onto each side");
-		this.setHelpUrl("");
-	}
-};
-  
+
 Blockly.Blocks['reactants_or_products'] = {
 	init: function() {
 		this.appendValueInput("Element1")
@@ -70,6 +54,22 @@ Blockly.Blocks['reactants_or_products'] = {
 		this.setOutput(true, "EquationInput");
 		this.setColour(230);
 		this.setTooltip("");
+		this.setHelpUrl("");
+	}
+};
+
+Blockly.Blocks['chemical_equation'] = {
+	init: function() {
+		this.appendValueInput("REACTANTS")
+		  .setCheck(["EquationInput", "Element", "Compound"]);
+		this.appendDummyInput()
+		  .appendField(new Blockly.FieldDropdown([["→","FORWARD"], ["⇌","EQUILIBRIUM"]]), "EquationType");
+		this.appendValueInput("PRODUCTS")
+		  .setCheck(["EquationInput", "Element", "Compound"]);
+		this.setInputsInline(true);
+		this.setOutput(true, "EquationOutput");
+		this.setColour(230);
+		this.setTooltip("Insert reactants_or_products onto each side");
 		this.setHelpUrl("");
 	}
 };
@@ -90,15 +90,17 @@ Blockly.JavaScript['element_coefficient'] = function(block) {
 };
 
 Blockly.JavaScript['compound'] = function(block) {
-  var element1 = Blockly.JavaScript.valueToCode(block, 'ELEMENT1', Blockly.JavaScript.ORDER_NONE);
-  var element2 = Blockly.JavaScript.valueToCode(block, 'ELEMENT2', Blockly.JavaScript.ORDER_NONE);
-  return [element1 + " " + element2, Blockly.JavaScript.ORDER_ATOMIC];
+	var element1 = Blockly.JavaScript.valueToCode(block, 'ELEMENT1', Blockly.JavaScript.ORDER_NONE);
+	var element2 = Blockly.JavaScript.valueToCode(block, 'ELEMENT2', Blockly.JavaScript.ORDER_NONE);
+	var code = element1 + element2;
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 Blockly.JavaScript['reactants_or_products'] = function(block) {
-  var element1 = Blockly.JavaScript.valueToCode(block, 'Element1', Blockly.JavaScript.ORDER_ATOMIC);
-  var element2 = Blockly.JavaScript.valueToCode(block, 'Element2', Blockly.JavaScript.ORDER_ATOMIC);
-  return [element1 + " + " + element2, Blockly.JavaScript.ORDER_ATOMIC];
+	var element1 = Blockly.JavaScript.valueToCode(block, 'Element1', Blockly.JavaScript.ORDER_ATOMIC);
+	var element2 = Blockly.JavaScript.valueToCode(block, 'Element2', Blockly.JavaScript.ORDER_ATOMIC);
+	var code = element1 + " + " + element2;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['chemical_equation'] = function(block) {
@@ -116,6 +118,7 @@ Blockly.JavaScript['chemical_equation'] = function(block) {
   
   return [equation, Blockly.JavaScript.ORDER_NONE];
 };
+
 /* Put more custom blocks here */
 
 /* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
