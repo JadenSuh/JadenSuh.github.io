@@ -78,12 +78,12 @@
 
 Blockly.JavaScript['element_symbol'] = function(block) {
   var name = block.getFieldValue('NAME');
-  return [name, Blockly.JavaScript.ORDER_ATOMIC];
+  return [name, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['element_coefficient'] = function(block) {
   var name = block.getFieldValue('NAME');
-  return [name, Blockly.JavaScript.ORDER_ATOMIC];
+  return [name, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['compound'] = function(block) {
