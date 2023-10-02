@@ -44,11 +44,11 @@
   
   Blockly.Blocks['chemical_equation'] = {
 	init: function() {
-	  this.appendValueInput("NAME")
+	  this.appendValueInput("REACTANTS")
 		  .setCheck(["EquationInput", "Element", "Compound"]);
 	  this.appendDummyInput()
 		  .appendField(new Blockly.FieldDropdown([["→","FORWARD"], ["⇌","EQUILIBRIUM"]]), "EquationType");
-	  this.appendValueInput("NAME")
+	  this.appendValueInput("PRODUCTS")
 		  .setCheck(["EquationInput", "Element", "Compound"]);
 	  this.setInputsInline(true);
 	  this.setOutput(true, "EquationOutput");
@@ -74,21 +74,21 @@
 	}
   };
 
-  Blockly.JavaScript['chemical_equation'] = function(block) {
-	var reactants = Blockly.JavaScript.valueToCode(block, 'REACTANTS', Blockly.JavaScript.ORDER_ATOMIC);
-	var equationType = block.getFieldValue('EquationType');
-	var products = Blockly.JavaScript.valueToCode(block, 'PRODUCTS', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.JavaScript['chemical_equation'] = function(block) {
+  var reactants = Blockly.JavaScript.valueToCode(block, 'REACTANTS', Blockly.JavaScript.ORDER_ATOMIC);
+  var equationType = block.getFieldValue('EquationType');
+  var products = Blockly.JavaScript.valueToCode(block, 'PRODUCTS', Blockly.JavaScript.ORDER_ATOMIC);
   
-	// Check if reactants and products are empty
-	if (!reactants || !products) {
-	  return '';
-	}
+  // Check if reactants and products are empty
+  if (!reactants || !products) {
+    return '';
+  }
   
-	// Format the chemical equation string
-	var equation = reactants + ' ' + equationType + ' ' + products;
+  // Format the chemical equation string
+  var equation = reactants + ' ' + equationType + ' ' + products;
   
-	return [equation, Blockly.JavaScript.ORDER_NONE];
-  };
+  return [equation, Blockly.JavaScript.ORDER_NONE];
+};
 /* Put more custom blocks here */
 
 /* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
