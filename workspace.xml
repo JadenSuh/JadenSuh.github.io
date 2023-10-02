@@ -1,5 +1,6 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none">
   <!-- Include all the blocks you want to be available -->
+  <block type="element_input"></block>
   <block type="element_symbol"></block>
   <block type="element_coefficient"></block>
   <block type="compound"></block>
