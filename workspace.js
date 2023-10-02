@@ -63,7 +63,7 @@ Blockly.Blocks['chemical_equation'] = {
 		this.appendValueInput("REACTANTS")
 		  .setCheck(["EquationInput", "Element", "Compound"]);
 		this.appendDummyInput()
-		  .appendField(new Blockly.FieldDropdown([["→","->"], ["⇌","<-->"]]), "EquationType");
+		  .appendField(new Blockly.FieldDropdown([["→","=>"], ["⇌","<==>"]]), "EquationType");
 		this.appendValueInput("PRODUCTS")
 		  .setCheck(["EquationInput", "Element", "Compound"]);
 		this.setInputsInline(true);
