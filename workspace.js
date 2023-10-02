@@ -13,6 +13,7 @@ Blockly.Blocks['element_symbols'] = {
 	}
 };
 
+/*
 // TODO: REMOVE
 Blockly.Blocks['element_symbol'] = {
 	init: function() {
@@ -27,6 +28,7 @@ Blockly.Blocks['element_symbol'] = {
 		this.setHelpUrl("https://en.wikipedia.org/wiki/Chemical_symbol");
 	}
 };
+*/
 
 Blockly.Blocks['element_input'] = {
 	init: function() {
