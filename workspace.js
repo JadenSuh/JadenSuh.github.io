@@ -74,6 +74,21 @@
 	}
   };
 
+  Blockly.JavaScript['chemical_equation'] = function(block) {
+	var reactants = Blockly.JavaScript.valueToCode(block, 'REACTANTS', Blockly.JavaScript.ORDER_ATOMIC);
+	var equationType = block.getFieldValue('EquationType');
+	var products = Blockly.JavaScript.valueToCode(block, 'PRODUCTS', Blockly.JavaScript.ORDER_ATOMIC);
+  
+	// Check if reactants and products are empty
+	if (!reactants || !products) {
+	  return '';
+	}
+  
+	// Format the chemical equation string
+	var equation = reactants + ' ' + equationType + ' ' + products;
+  
+	return [equation, Blockly.JavaScript.ORDER_NONE];
+  };
 /* Put more custom blocks here */
 
 /* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
