@@ -43,7 +43,7 @@
             document.getElementById('codeDiv').innerText = code;
         }
 
-        function saveCode() {
+        function saveBlocks() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             var blob = new Blob([code], { type: 'text/javascript' });
             var a = document.createElement('a');
