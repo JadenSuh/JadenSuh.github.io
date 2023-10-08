@@ -84,6 +84,7 @@ Blockly.JavaScript['element_symbol'] = function(block) {
 
 Blockly.JavaScript['element_coefficient'] = function(block) {
 	var num = block.getFieldValue('NUMBER');
+	var isDefaultValue = block.getFieldValue('NUMBER') === block.getField('NUMBER').DEFAULT_VALUE;
 	var ele_name = Blockly.JavaScript.valueToCode(block, 'COEFFICIENT', Blockly.JavaScript.ORDER_NONE);
 	var code;
 	if (isDefaultValue) {
