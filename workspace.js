@@ -3,7 +3,7 @@
 Blockly.Blocks['element_symbol'] = {
 	init: function() {
 		this.appendDummyInput()
-		  .appendField("Element Symbol: ") /* Name that appears on block piece */
+		  .appendField("Element: ") /* Name that appears on block piece */
 		  .appendField(new Blockly.FieldTextInput("H"), "NAME");
 		this.setInputsInline(true, "String");
 		this.setOutput(true, "Element"); /* output type to allow block connections */
@@ -17,7 +17,7 @@ Blockly.Blocks['element_coefficient'] = {
 	init: function() {
 		this.appendValueInput("COEFFICIENT")
 		  .setCheck("Element")
-		  .appendField(new Blockly.FieldNumber(1, 1), "NUMBER");
+		  .appendField(new Blockly.FieldNumber(2, 2), "NUMBER");
 		this.setInputsInline(true);
 		this.setOutput(true, "Element");
 		this.setColour(180);
