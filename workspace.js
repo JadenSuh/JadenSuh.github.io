@@ -16,7 +16,7 @@ Blockly.Blocks['element_symbol'] = {
 Blockly.Blocks['element_coefficient'] = {
 	init: function() {
 		this.appendValueInput("COEFFICIENT")
-		  .setCheck("Element, Compound")
+		  .setCheck(["Element", "Compound"])
 		  .appendField(new Blockly.FieldNumber(2, 2), "NUMBER");
 		this.setInputsInline(true);
 		this.setOutput(true, "Compound");
