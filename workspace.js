@@ -83,13 +83,13 @@ Blockly.JavaScript['element_symbol'] = function(block) {
 };
 
 Blockly.JavaScript['element_coefficient'] = function(block) {
-	var num = block.getFieldValue('NUMBER');
-	var ele_name = Blockly.JavaScript.valueToCode(block, 'COEFFICIENT', Blockly.JavaScript.ORDER_NONE);
-	var code = num + ele_name;
-		if (int(num) == 1) {
-			code = ele_name;
-		}
-  return [code, Blockly.JavaScript.ORDER_NONE];
+	var code;
+	if (num === '1') {
+		code = ele_name;
+	} else {
+		code = num + ele_name;
+	}
+  	return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['compound'] = function(block) {
@@ -97,14 +97,14 @@ Blockly.JavaScript['compound'] = function(block) {
 	var element2 = Blockly.JavaScript.valueToCode(block, 'ELEMENT2', Blockly.JavaScript.ORDER_NONE);
 	var com = element1 + element2;
 	var code = com.replace(/ /g, "")
-  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+  	return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 Blockly.JavaScript['reactants_or_products'] = function(block) {
 	var element1 = Blockly.JavaScript.valueToCode(block, 'Element1', Blockly.JavaScript.ORDER_ATOMIC);
 	var element2 = Blockly.JavaScript.valueToCode(block, 'Element2', Blockly.JavaScript.ORDER_ATOMIC);
 	var code = element1 + " + " + element2;
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['chemical_equation'] = function(block) {
