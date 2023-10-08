@@ -25,6 +25,8 @@
     </div>
     <div class="row button-row">
         <button onclick="generateCode()">Generate Code</button>
+        <button onclick="saveBlocks()">Save Blocks</button>
+        <button onclick="viewSource()">View GitHub</button>
     </div>
     <div class="row">
         <div id="codeDiv" class="half-width"></div>
@@ -39,6 +41,20 @@
         function generateCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             document.getElementById('codeDiv').innerText = code;
+        }
+
+        function saveCode() {
+            var code = Blockly.JavaScript.workspaceToCode(workspace);
+            var blob = new Blob([code], { type: 'text/javascript' });
+            var a = document.createElement('a');
+            a.download = 'generatedCode.js'; // File Name
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        }
+
+        function viewSource() {
+            var linkUrl = 'https://github.com/JadenSuh/JadenSuh.github.io/tree/main' // Link to source
+            window.open(linkUrl, '_blank')
         }
     </script>
 </body>
