@@ -86,7 +86,7 @@ Blockly.JavaScript['element_coefficient'] = function(block) {
 	var num = block.getFieldValue('NUMBER');
 	var ele_name = Blockly.JavaScript.valueToCode(block, 'COEFFICIENT', Blockly.JavaScript.ORDER_NONE);
 	var code;
-	if (num === '1') {
+	if (isDefaultValue) {
 		code = ele_name;
 	} else {
 		code = num + ele_name;
