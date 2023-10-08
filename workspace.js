@@ -86,6 +86,7 @@ Blockly.JavaScript['element_coefficient'] = function(block) {
 	var ele_name = Blockly.JavaScript.valueToCode(block, 'COEFFICIENT', Blockly.JavaScript.ORDER_NONE);
 	if (ele_name) {
 		ele_name = '(' + ele_name + ')';
+	}
 	var code = num + ele_name;
   	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
