@@ -84,6 +84,8 @@ Blockly.JavaScript['element_symbol'] = function(block) {
 
 Blockly.JavaScript['element_coefficient'] = function(block) {
 	var code;
+	var ele_name = Blockly.JavaScript.valueToCode(block, 'COEFFICIENT', Blockly.JavaScript.ORDER_NONE);
+	var code;
 	if (num === '1') {
 		code = ele_name;
 	} else {
