@@ -2,11 +2,10 @@
   
 Blockly.Blocks['element_symbol'] = {
 	init: function() {
-		this.appendValueInput("SYMBOL")
-		  .setCheck("String")
-		  .appendField("Ele") /* Name that appears on block piece */
+		this.appendDummyInput()
+		  .appendField("Element Symbol: ") /* Name that appears on block piece */
 		  .appendField(new Blockly.FieldTextInput("H"), "NAME");
-		this.setInputsInline(true);
+		this.setInputsInline(true, "String");
 		this.setOutput(true, "Element"); /* output type to allow block connections */
 		this.setColour(120);
 		this.setTooltip("Enter the chemical symbol for the desired element");
