@@ -25,7 +25,7 @@
     </div>
     <div class="row button-row">
         <button onclick="generateCode()">Generate Code</button>
-        <button onclick="saveBlocks()">Save Code</button>
+        <button onclick="saveCode()">Save Code</button>
         <button onclick="viewSource()">View GitHub</button>
     </div>
     <div class="row">
@@ -43,7 +43,7 @@
             document.getElementById('codeDiv').innerText = code;
         }
 
-        function saveBlocks() {
+        function saveCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             var blob = new Blob([code], { type: 'text/javascript' });
             var a = document.createElement('a');
